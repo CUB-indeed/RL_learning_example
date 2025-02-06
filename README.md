@@ -7,7 +7,7 @@ A Markov Decision Process (MDP) is a mathematical framework used to model decisi
 - **Actions (A)**: A finite set of actions available to an agent.
 - **Transition function (T)**: The probability of reaching state \( s' \) given state \( s \) and action \( a \), written as \( P(s' | s, a) \).
 - **Reward function (R)**: The immediate reward received after transitioning from state \( s \) to \( s' \) by taking action \( a \).
-- **Discount factor (\( \gamma \))**: A value between 0 and 1 that determines the importance of future rewards.
+- **Discount factor ($\gamma$)**: A value between 0 and 1 that determines the importance of future rewards.
 
 The goal in an MDP is to find a policy $\pi(s)$ that maximizes the expected cumulative reward. The policy can be evaluated using the State-Value Function or the Action-Value Function.  In traditional **dynamic programming** approaches like **Value Iteration** or **Policy Iteration**, we compute the State-Value Function \( V(s) \) iteratively using the **Bellman equation**.
 
@@ -58,15 +58,15 @@ $$
 
 where:
 - $Q_{\theta}$ is the current Q-network.
-- $Q_{\theta^-}$ is a **target network** (a copy  updated periodically for stability).
-- $ R + \gamma Q_{\theta^-}(s', a')$ is the **target Q-value**.
+- $Q_{\theta^-}$ is a **target network** (a copy of $Q_{\theta}$   updated periodically for stability.
+- R + $\gamma$ $\max_{a'}$ $Q_{\theta^-}(s', a')$ is the **target Q-value**.
 
 ### Key Innovations in Deep RL
 - **Experience Replay**: Instead of updating the network sequentially, we store past experiences in a buffer and sample randomly, reducing correlation between updates.
 - **Target Network**: A separate network is used to compute the target Q-values, improving stability.
 
 ## Extending to Policy-Based Methods (Actor-Critic)
-Instead of learning the **Q-function**, we can also directly **learn a policy $\pi(s)$ ** using policy gradient methods. One popular method is **Actor-Critic**, where:
+Instead of learning the **Q-function**, we can also directly learn a policy $\pi(s)$ using policy gradient methods. One popular method is **Actor-Critic**, where:
 - The **actor** learns the policy $\pi(s)$.
 - The **critic** estimates the value function \( V(s) \) or the Q-value \( Q(s, a) \) to guide the actor.
 
@@ -75,7 +75,7 @@ Instead of learning the **Q-function**, we can also directly **learn a policy $\
 This leads to methods like:
 - **PPO (Proximal Policy Optimization)**
 - **A3C (Asynchronous Advantage Actor-Critic)**
-- 
+  
 
 
 ## Partially Observable Markov Games (POMG) and Multi-Agent RL
