@@ -21,10 +21,10 @@ $$
 This means that the value of a state is the **expected reward** plus the **discounted value of the next state**.
 
 ### Action-Value Function \( Q(s, a) \)
-The **Q-function** represents the expected return from state \( s \) taking action \( a \) and then following policy \( \pi \):
+The **Q-function** represents the expected return from state \( s \) taking action \( a \) and then following policy $\pi$:
 
 $$
-Q(s, a) = \mathbb{E}_\pi \left[ R_t + \gamma \max_{a'} Q(s', a') \right]
+Q(s, a) = \mathbb{E}_\pi \left[ R_t + \gamma Q\left(s', a'\right) \right]
 $$
 
 This recursive formula is used in methods like **Q-learning**, where we iteratively update \( Q(s, a) \) using **tabular methods**.
@@ -58,8 +58,8 @@ $$
 
 where:
 - $Q_{\theta}$ is the current Q-network.
-- $Q_{\theta^-}$ is a **target network** (a copy of $ Q_{\theta}$ updated periodically for stability).
-- $ R + \gamma \max_{a'} Q_{\theta^-}(s', a')$ is the **target Q-value**.
+- $Q_{\theta^-}$ is a **target network** (a copy  updated periodically for stability).
+- $ R + \gamma Q_{\theta^-}(s', a')$ is the **target Q-value**.
 
 ### Key Innovations in Deep RL
 - **Experience Replay**: Instead of updating the network sequentially, we store past experiences in a buffer and sample randomly, reducing correlation between updates.
