@@ -75,3 +75,29 @@ Instead of learning the **Q-function**, we can also directly **learn a policy $\
 This leads to methods like:
 - **PPO (Proximal Policy Optimization)**
 - **A3C (Asynchronous Advantage Actor-Critic)**
+- 
+
+
+## Partially Observable Markov Games (POMG) and Multi-Agent RL
+
+### Partially Observable Markov Games (POMG)
+
+A **Partially Observable Markov Game (POMG)** extends the **Markov Decision Process (MDP)** to multi-agent settings where agents have limited information about the environment.
+
+A POMG is defined by:
+- **N agents** interacting in an environment.
+- Each agent **i** has a private observation \( o_i \) derived from the state \( s \).
+- Each agent selects an action \( a_i \) based on \( o_i \).
+- The environment transitions to a new state \( s' \) based on all agents' actions.
+- Agents receive individual rewards \( R_i \), which may be cooperative or competitive.
+
+### Multi-Agent Reinforcement Learning (MARL)
+
+In MARL, multiple agents learn simultaneously, affecting each other’s learning process. The two primary settings are:
+1. **Cooperative**: Agents share rewards and work towards a common goal.
+2. **Competitive**: Agents have conflicting objectives (e.g., adversarial games).
+
+Common MARL algorithms:
+- **Independent Q-Learning**: Each agent learns its own Q-function, treating others as part of the environment.
+- **Centralized Training, Decentralized Execution (CTDE)**: Agents train with shared knowledge but act independently.
+- **Multi-Agent Deep Deterministic Policy Gradient (MADDPG)**: An extension of DDPG for multi-agent settings.
